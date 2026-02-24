@@ -20,6 +20,19 @@ The application follows a classic Frontend/Backend decoupled architecture:
 
 ### **Backend (Python / FastAPI)**
 - **API Layer**: Handles request routing, graph lifecycle management (rebuilding every 60s), and pathfinding logic.
+  - TLE data can be obtained from CelesTrak API or passive radar using LEO signals once you have real time locations of the satellite array may be used.
+  - CelesTrak endpoint address: https://celestrak.org/NORAD/elements/gp.php?GROUP=starlink&FORMAT=tle
+  - Sample Data:
+STARLINK-1008           
+1 44714U 19074B   26054.54089312  .00000969  00000+0  43797-4 0  9997
+2 44714  53.1568 244.5638 0001273  95.0474 265.0672 15.31036083346702
+STARLINK-1012           
+1 44718U 19074F   26054.51354291  .00003198  00000+0  12005-3 0  9993
+2 44718  53.1615 244.6539 0001009  82.1810 277.9305 15.30200706346695
+STARLINK-1017           
+1 44723U 19074L   26054.76604862  .00034704  00000+0  14784-2 0  9990
+2 44723  53.0507 235.6253 0003379 133.3313 226.7965 15.22666233346845
+    
 - **Orbital Engine**: Uses `Skyfield` to propagate satellite TLEs (Two-Line Elements) to Geocentric coordinates and builds a dynamic connectivity graph using `NetworkX`.
 - **Data Fetcher**: Periodically fetches and caches fresh TLE data from CelesTrak.
 - **Weather Service**: Integrates with Open-Meteo API to simulate Ka-band rain fade penalties on ground-to-satellite links.
