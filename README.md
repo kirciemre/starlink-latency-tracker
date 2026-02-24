@@ -9,7 +9,7 @@ The project compares two routing strategies:
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 The application follows a classic Frontend/Backend decoupled architecture:
 
