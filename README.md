@@ -45,7 +45,7 @@ The application follows a classic Frontend/Backend decoupled architecture:
 - **Routing Constraints**:
   We can try two separate approaches here. First, we maximize the range, minimizing the number of routers used, and attempting to achieve low latency.
   Secondly, we take a more reliable approach, minimizing the risk of packet loss and therefore using more routers.
-    - **HFT**: Finds the longest possible Inter-Satellite Links to minimize the number of "hops" (router processing steps). Since each hop adds a 5ms delay, fewer hops result in lower total latency.
+    - **HFT**: Finds the longest possible Inter-Satellite Links to minimize the number of "hops" (router processing steps). Since each hop adds a 2ms (the routers in Starlink are FPGA or special ASIC units so latency may drop 0.5ms but for precaution I simply use 2ms) delay, fewer hops result in lower total latency.
     - **Standard**: Restricted to ISL edges ≤ 800km. Using shorter, more stable links reduces the risk of packet loss. This typically results in more hops and higher latency but ensures a more reliable communication "pipe" for standard data traffic. 
 
 ### **3. Rain Fade Simulation (Ka-Band)**
@@ -54,6 +54,9 @@ The application follows a classic Frontend/Backend decoupled architecture:
     - **Medium Risk (Clouds/Light Rain)**: +5ms penalty / 5% packet loss.
     - **High Risk (Storm/Heavy Rain)**: +25ms penalty / 20% packet loss.
 
+### **4. Uplink and Downlink** 
+- Slant Range may change distance significantly,
+- We need to calculate the dynamic slope of the satellite and calculate the correct distance.
 ---
 
 ## 🛠️ Technology Stack
