@@ -37,7 +37,7 @@ The application follows a classic Frontend/Backend decoupled architecture:
 - **Spatial Indexing**: Proximity searches among ~9500+ satellites.
 - **Line-of-Sight Check**: Implements a geometric check to ensure inter-satellite links do not pass through the Earth's core.
 - **Edge Weighting**:
-  `Weight = (Distance / Speed_of_Light) + Router_Processing_Delay (5ms)`
+  `Weight = (Distance / Speed_of_Light) + Router_Processing_Delay (2ms)`
   We can add a 5ms latency between each router.
 
 ### **2. Pathfinding**
