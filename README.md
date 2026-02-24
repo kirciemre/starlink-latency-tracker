@@ -38,7 +38,7 @@ The application follows a classic Frontend/Backend decoupled architecture:
 - **Line-of-Sight Check**: Implements a geometric check to ensure inter-satellite links do not pass through the Earth's core.
 - **Edge Weighting**:
   `Weight = (Distance / Speed_of_Light) + Router_Processing_Delay (2ms)`
-  We can add a 5ms latency between each router.
+  We can add a 2ms latency between each router.
 
 ### **2. Pathfinding**
 - **Dijkstra's Algorithm**: We can use `networkx.shortest_path` to find the minimum weight (latency) path.
